@@ -23,7 +23,7 @@ class ApprovalBloc extends Bloc<ApprovalEvent, ApprovalState> {
         }
 
       } catch (e) {
-        // yield ApprovalError(errorMessage: e.toString());
+        yield ApprovalError(errorMessage: e.toString());
       }
     }
   }
