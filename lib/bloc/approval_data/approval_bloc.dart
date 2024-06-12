@@ -2,7 +2,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:we_lean/repo/approval_data_repo.dart';
 import 'package:we_lean/utils/app_constants.dart';
-
 import 'approval_event.dart';
 import 'approval_state.dart';
 
@@ -24,7 +23,7 @@ class ApprovalBloc extends Bloc<ApprovalEvent, ApprovalState> {
         }
 
       } catch (e) {
-        yield ApprovalError(errorMessage: e.toString());
+        // yield ApprovalError(errorMessage: e.toString());
       }
     }
   }
