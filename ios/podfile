@@ -19,3 +19,11 @@ end
 flutter_application_path = File.join(File.dirname(File.realpath(__FILE__)), '..')
 eval(File.read(File.join(flutter_application_path, 'ios', 'Flutter', 'podhelper.rb')), binding)
 
+target 'Runner' do
+  use_frameworks!
+
+  # Pods for Runner
+  # No additional pods needed beyond what Flutter integrates
+end
+
+
