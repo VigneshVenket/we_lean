@@ -24,6 +24,7 @@ target 'Runner' do
 
   # Pods for Runner
   # No additional pods needed beyond what Flutter integrates
+  pod 'image_cropper'
 end
 
 
