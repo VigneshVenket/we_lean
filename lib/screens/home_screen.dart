@@ -470,46 +470,93 @@ class _HomeScreenState extends State<HomeScreen> {
                                         alignment: BarChartAlignment.spaceAround,
                                         maxY: 100, // Adjusted maxY value
                                         barTouchData: BarTouchData(enabled: false),
+                                        gridData: FlGridData(
+                                          show: false
+                                        ),
                                         titlesData: FlTitlesData(
-                                          leftTitles: SideTitles(
-                                            showTitles: true,
-                                            interval: 20.0,
-                                            reservedSize: 30,
-                                            getTextStyles: (context, value) => titilliumBoldRegular,
+                                          leftTitles: const AxisTitles(
+                                            sideTitles: SideTitles(
+                                              showTitles: true,
+                                              interval: 20.0,
+                                              reservedSize: 40,
+
+                                            )
+                                            // showTitles: true,
+                                            // interval: 20.0,
+                                            // reservedSize: 30,
+                                            // getTextStyles: (context, value) => titilliumBoldRegular,
                                           ),
-                                          bottomTitles: SideTitles(
-                                            showTitles: true,
-                                            getTextStyles: (context, value) => titilliumBoldRegular,
-                                            margin: 16,
-                                            getTitles: (double value) {
-                                              switch (value.toInt()) {
-                                                case 0:
-                                                  return 'Mon';
-                                                case 1:
-                                                  return 'Tue';
-                                                case 2:
-                                                  return 'Wed';
-                                                case 3:
-                                                  return 'Thu';
-                                                case 4:
-                                                  return 'Fri';
-                                                case 5:
-                                                  return 'Sat';
-                                                case 6:
-                                                  return 'Sun';
-                                                default:
-                                                  return '';
-                                              }
-                                            },
+                                          topTitles: const AxisTitles(
+                                            sideTitles: SideTitles(
+                                              showTitles: false
+                                            )
+                                          ),
+                                          rightTitles: const AxisTitles(
+                                            sideTitles: SideTitles(
+                                              showTitles: false
+                                            )
+                                          ),
+                                          // bottomTitles: SideTitles(
+                                          //   showTitles: true,
+                                          //   getTextStyles: (context, value) => titilliumBoldRegular,
+                                          //   margin: 16,
+                                          //   getTitles: (double value) {
+                                          //     switch (value.toInt()) {
+                                          //       case 0:
+                                          //         return 'Mon';
+                                          //       case 1:
+                                          //         return 'Tue';
+                                          //       case 2:
+                                          //         return 'Wed';
+                                          //       case 3:
+                                          //         return 'Thu';
+                                          //       case 4:
+                                          //         return 'Fri';
+                                          //       case 5:
+                                          //         return 'Sat';
+                                          //       case 6:
+                                          //         return 'Sun';
+                                          //       default:
+                                          //         return '';
+                                          //     }
+                                          //   },
+                                          // ),
+                                          bottomTitles: AxisTitles(
+                                              sideTitles: SideTitles(
+                                                  showTitles: true,
+                                                  getTitlesWidget: (value,title){
+                                                    // return Text(" ");
+                                                    switch (value.toInt()) {
+                                                      case 0:
+                                                        return Text("Mon",);
+                                                      case 1:
+                                                        return Text("Tue",);
+                                                      case 2:
+                                                        return Text("Wed",);
+                                                      case 3:
+                                                        return Text("Thur",);
+                                                      case 4:
+                                                        return Text("Fri",);
+                                                      case 5:
+                                                        return Text("Sat",);
+                                                      case 6:
+                                                        return Text("Sun",);
+                                                      default:
+                                                        return Text(" ");
+                                                    }
+
+                                                  }
+                                              )
                                           ),
                                         ),
+
                                         borderData: FlBorderData(show: false),
                                         barGroups: List.generate(
                                           doubleList.length,
                                               (index) => BarChartGroupData(
                                             x: index,
                                             barRods: [
-                                              BarChartRodData(y: doubleList[index], colors: [CustomColors.themeColor], width: 10),
+                                              BarChartRodData(toY: doubleList[index], color: CustomColors.themeColor, width: 10),
                                             ],
                                           ),
                                         ),
@@ -545,36 +592,54 @@ class _HomeScreenState extends State<HomeScreen> {
                                           maxY: 100, // Adjusted maxY value
                                           barTouchData: BarTouchData(enabled: false),
                                           titlesData: FlTitlesData(
-                                            leftTitles: SideTitles(
-                                              showTitles: true,
-                                              interval: 20.0,
-                                              reservedSize: 30,
-                                              getTextStyles: (context, value) => titilliumBoldRegular,
+                                            leftTitles: const AxisTitles(
+                                                sideTitles: SideTitles(
+                                                  showTitles: true,
+                                                  interval: 20.0,
+                                                  reservedSize: 40,
+
+                                                )
+                                              // showTitles: true,
+                                              // interval: 20.0,
+                                              // reservedSize: 30,
+                                              // getTextStyles: (context, value) => titilliumBoldRegular,
                                             ),
-                                            bottomTitles: SideTitles(
-                                              showTitles: true,
-                                              getTextStyles: (context, value) => titilliumBoldRegular,
-                                              margin: 16,
-                                              getTitles: (double value) {
-                                                switch (value.toInt()) {
-                                                  case 0:
-                                                    return 'Mon';
-                                                  case 1:
-                                                    return 'Tue';
-                                                  case 2:
-                                                    return 'Wed';
-                                                  case 3:
-                                                    return 'Thu';
-                                                  case 4:
-                                                    return 'Fri';
-                                                  case 5:
-                                                    return 'Sat';
-                                                  case 6:
-                                                    return 'Sun';
-                                                  default:
-                                                    return '';
-                                                }
-                                              },
+                                            bottomTitles: AxisTitles(
+                                                sideTitles: SideTitles(
+                                                    showTitles: true,
+                                                    getTitlesWidget: (value,title){
+                                                      // return Text(" ");
+                                                      switch (value.toInt()) {
+                                                        case 0:
+                                                          return Text("Mon",style: titilliumRegular,);
+                                                        case 1:
+                                                          return Text("Tue",style: titilliumRegular,);
+                                                        case 2:
+                                                          return Text("Wed",style: titilliumRegular,);
+                                                        case 3:
+                                                          return Text("Thur",style: titilliumRegular,);
+                                                        case 4:
+                                                          return Text("Fri",style: titilliumRegular,);
+                                                        case 5:
+                                                          return Text("Sat",style: titilliumRegular,);
+                                                        case 6:
+                                                          return Text("Sun",style: titilliumRegular,);
+                                                        default:
+                                                          return Text(" ");
+                                                      }
+
+                                                    }
+                                                )
+                                            ),
+                                            topTitles: const AxisTitles(
+                                                sideTitles: SideTitles(
+                                                    showTitles: false
+                                                )
+                                            ),
+                                            rightTitles: const AxisTitles(
+                                                sideTitles: SideTitles(
+                                                    showTitles: false
+                                                )
                                             ),
                                           ),
                                           borderData: FlBorderData(show: false),
@@ -583,7 +648,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 (index) => BarChartGroupData(
                                               x: index,
                                               barRods: [
-                                                BarChartRodData(y: 0, colors: [CustomColors.themeColor], width: 10),
+                                                BarChartRodData(toY: 0, color: CustomColors.themeColor, width: 10),
                                               ],
                                             ),
                                           ),
@@ -621,36 +686,85 @@ class _HomeScreenState extends State<HomeScreen> {
                                      maxY: 100, // Adjusted maxY value
                                      barTouchData: BarTouchData(enabled: false),
                                      titlesData: FlTitlesData(
-                                       leftTitles: SideTitles(
-                                         showTitles: true,
-                                         interval: 20.0,
-                                         reservedSize: 30,
-                                         getTextStyles: (context, value) => titilliumBoldRegular,
+                                       // leftTitles: SideTitles(
+                                       //   showTitles: true,
+                                       //   interval: 20.0,
+                                       //   reservedSize: 30,
+                                       //   getTextStyles: (context, value) => titilliumBoldRegular,
+                                       // ),
+                                       // bottomTitles: SideTitles(
+                                       //   showTitles: true,
+                                       //   getTextStyles: (context, value) => titilliumBoldRegular,
+                                       //   margin: 16,
+                                       //   getTitles: (double value) {
+                                       //     switch (value.toInt()) {
+                                       //       case 0:
+                                       //         return 'Mon';
+                                       //       case 1:
+                                       //         return 'Tue';
+                                       //       case 2:
+                                       //         return 'Wed';
+                                       //       case 3:
+                                       //         return 'Thu';
+                                       //       case 4:
+                                       //         return 'Fri';
+                                       //       case 5:
+                                       //         return 'Sat';
+                                       //       case 6:
+                                       //         return 'Sun';
+                                       //       default:
+                                       //         return '';
+                                       //     }
+                                       //   },
+                                       // ),
+                                       leftTitles: const AxisTitles(
+                                           sideTitles: SideTitles(
+                                             showTitles: true,
+                                             interval: 20.0,
+                                             reservedSize: 40,
+
+                                           )
+                                         // showTitles: true,
+                                         // interval: 20.0,
+                                         // reservedSize: 30,
+                                         // getTextStyles: (context, value) => titilliumBoldRegular,
                                        ),
-                                       bottomTitles: SideTitles(
-                                         showTitles: true,
-                                         getTextStyles: (context, value) => titilliumBoldRegular,
-                                         margin: 16,
-                                         getTitles: (double value) {
-                                           switch (value.toInt()) {
-                                             case 0:
-                                               return 'Mon';
-                                             case 1:
-                                               return 'Tue';
-                                             case 2:
-                                               return 'Wed';
-                                             case 3:
-                                               return 'Thu';
-                                             case 4:
-                                               return 'Fri';
-                                             case 5:
-                                               return 'Sat';
-                                             case 6:
-                                               return 'Sun';
-                                             default:
-                                               return '';
-                                           }
-                                         },
+                                       bottomTitles: AxisTitles(
+                                           sideTitles: SideTitles(
+                                               showTitles: true,
+                                               getTitlesWidget: (value,title){
+                                                 // return Text(" ");
+                                                 switch (value.toInt()) {
+                                                   case 0:
+                                                     return Text("Mon",style: titilliumRegular,);
+                                                   case 1:
+                                                     return Text("Tue",style: titilliumRegular,);
+                                                   case 2:
+                                                     return Text("Wed",style: titilliumRegular,);
+                                                   case 3:
+                                                     return Text("Thur",style: titilliumRegular,);
+                                                   case 4:
+                                                     return Text("Fri",style: titilliumRegular,);
+                                                   case 5:
+                                                     return Text("Sat",style: titilliumRegular,);
+                                                   case 6:
+                                                     return Text("Sun",style: titilliumRegular,);
+                                                   default:
+                                                     return Text(" ");
+                                                 }
+
+                                               }
+                                           )
+                                       ),
+                                       topTitles: const AxisTitles(
+                                           sideTitles: SideTitles(
+                                               showTitles: false
+                                           )
+                                       ),
+                                       rightTitles: const AxisTitles(
+                                           sideTitles: SideTitles(
+                                               showTitles: false
+                                           )
                                        ),
                                      ),
                                      borderData: FlBorderData(show: false),
@@ -659,7 +773,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                            (index) => BarChartGroupData(
                                          x: index,
                                          barRods: [
-                                           BarChartRodData(y: 0, colors: [CustomColors.themeColor], width: 10),
+                                           BarChartRodData(toY: 0, color: CustomColors.themeColor, width: 10),
                                          ],
                                        ),
                                      ),
@@ -919,33 +1033,72 @@ class _HomeScreenState extends State<HomeScreen> {
                                 minY: -0.2,
                                 maxY: countList.isNotEmpty ? countList.reduce((a, b) => a > b ? a : b).toDouble() + 1 : 1,
                                 titlesData: FlTitlesData(
-                                  bottomTitles: SideTitles(
-                                    showTitles: true,
-                                    margin: 0,
-                                    getTextStyles: (context, value) => titilliumBoldRegular,
-                                    getTitles: (value) {
-                                      switch (value.toInt()) {
-                                        case 0:
-                                          return 'Mon';
-                                        case 1:
-                                          return 'Tue';
-                                        case 2:
-                                          return 'Wed';
-                                        case 3:
-                                          return 'Thu';
-                                        case 4:
-                                          return 'Fri';
-                                        case 5:
-                                          return 'Sat';
-                                        case 6:
-                                          return 'Sun';
-                                        default:
-                                          return '';
+                                  // bottomTitles: SideTitles(
+                                  //   showTitles: true,
+                                  //   margin: 0,
+                                  //   getTextStyles: (context, value) => titilliumBoldRegular,
+                                  //   getTitles: (value) {
+                                  //     switch (value.toInt()) {
+                                  //       case 0:
+                                  //         return 'Mon';
+                                  //       case 1:
+                                  //         return 'Tue';
+                                  //       case 2:
+                                  //         return 'Wed';
+                                  //       case 3:
+                                  //         return 'Thu';
+                                  //       case 4:
+                                  //         return 'Fri';
+                                  //       case 5:
+                                  //         return 'Sat';
+                                  //       case 6:
+                                  //         return 'Sun';
+                                  //       default:
+                                  //         return '';
+                                  //     }
+                                  //   },
+                                  // ),
+                                  bottomTitles: AxisTitles(
+                                    sideTitles: SideTitles(
+                                      showTitles: true,
+                                      getTitlesWidget: (value,title){
+                                        // return Text(" ");
+                                            switch (value.toInt()) {
+                                              case 0:
+                                                return Text("Mon",);
+                                              case 1:
+                                                return Text("Tue",);
+                                              case 2:
+                                                return Text("Wed",);
+                                              case 3:
+                                                return Text("Thur",);
+                                              case 4:
+                                                return Text("Fri",);
+                                              case 5:
+                                                return Text("Sat",);
+                                              case 6:
+                                                return Text("Sun",);
+                                              default:
+                                                return Text(" ");
+                                            }
+
                                       }
-                                    },
+                                    )
                                   ),
-                                  leftTitles: SideTitles(
-                                    showTitles: false,
+                                  leftTitles:AxisTitles(
+                                    sideTitles: SideTitles(
+                                      showTitles: false
+                                    )
+                                  ),
+                                  rightTitles: AxisTitles(
+                                      sideTitles: SideTitles(
+                                          showTitles: false
+                                      )
+                                  ),
+                                  topTitles: AxisTitles(
+                                      sideTitles: SideTitles(
+                                          showTitles: false
+                                      )
                                   ),
                                 ),
                                 borderData: FlBorderData(show: false, border: Border.all(color: Colors.grey)),
@@ -956,7 +1109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           (index) => FlSpot(index.toDouble(), countList[index].toDouble()),
                                     ),
                                     isCurved: true,
-                                    colors: [CustomColors.themeColor],
+                                    color: CustomColors.themeColor,
                                     barWidth: 4,
                                     isStrokeCapRound: true,
                                     belowBarData: BarAreaData(show: false),
@@ -982,7 +1135,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 lineTouchData: LineTouchData(
                                   touchTooltipData: LineTouchTooltipData(
-                                    tooltipBgColor: Color.fromRGBO(240, 240, 240, 1),
+                                      getTooltipColor: (LineBarSpot touchedSpot) {
+                                        return Color.fromRGBO(240, 240, 240, 1);
+                                      }
                                   ),
 
                                   // touchCallback: (LineTouchResponse touchResponse) {

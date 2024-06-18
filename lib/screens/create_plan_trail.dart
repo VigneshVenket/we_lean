@@ -113,85 +113,85 @@ class _CreatePlanTrailState extends State<CreatePlanTrail> {
       appBar: AppBar(
         title: Text("Line Chart"),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20,),
-          Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.87,
-              height: MediaQuery.of(context).size.height*0.4,
-              child: LineChart(
-                LineChartData(
-                  minX: 0,
-                  maxX: 6,
-                  minY: 0,
-                  maxY: 5,
-                  titlesData: FlTitlesData(
-                    bottomTitles: SideTitles(
-                      showTitles: true,
-                      getTextStyles: (context, value) => titilliumBoldRegular,
-                      margin: 12,
-                      getTitles: (double value) {
-                        switch (value.toInt()) {
-                          case 0:
-                            return 'Mon';
-                          case 1:
-                            return 'Tue';
-                          case 2:
-                            return 'Wed';
-                          case 3:
-                            return 'Thu';
-                          case 4:
-                            return 'Fri';
-                          case 5:
-                            return 'Sat';
-                          case 6:
-                            return 'Sun';
-                          default:
-                            return '';
-                        }
-                      },
-                    ),
-                    leftTitles: SideTitles(
-                      showTitles: false,
-                    ),
-                  ),
-                  borderData: FlBorderData(show: true, border: Border.all(color: CustomColors.themeColor, width: 2)),
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: List.generate(
-                        constraintCountsPerDay.length,
-                            (index) => FlSpot(index.toDouble(), constraintCountsPerDay[index].toDouble()),
-                      ),
-                      isCurved: true,
-                      colors: [CustomColors.themeColor],
-                      barWidth: 4,
-                      isStrokeCapRound: true,
-                      belowBarData: BarAreaData(show: false),
-                      dotData: FlDotData(
-                        show: true,
-                        getDotPainter: (spot, percent, barData, index) => FlDotCirclePainter(
-                          radius: 4,
-                          color: Colors.red, // Change the dot color here
-                          strokeWidth: 2,
-                          strokeColor: Colors.red, // Change the border color here
-                        ),
-                      ),
-                    ),
-                  ],
-                    gridData: FlGridData(show: false),
-                  lineTouchData: LineTouchData(
-                    touchTooltipData: LineTouchTooltipData(
-                      tooltipBgColor: Color.fromRGBO(240, 240, 240, 1)
-                    )
-                  )
-
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      // body: Column(
+      //   children: [
+      //     SizedBox(height: 20,),
+      //     Center(
+      //       child: Container(
+      //         width: MediaQuery.of(context).size.width*0.87,
+      //         height: MediaQuery.of(context).size.height*0.4,
+      //         child: LineChart(
+      //           LineChartData(
+      //             minX: 0,
+      //             maxX: 6,
+      //             minY: 0,
+      //             maxY: 5,
+      //             titlesData: FlTitlesData(
+      //               bottomTitles: SideTitles(
+      //                 showTitles: true,
+      //                 getTextStyles: (context, value) => titilliumBoldRegular,
+      //                 margin: 12,
+      //                 getTitles: (double value) {
+      //                   switch (value.toInt()) {
+      //                     case 0:
+      //                       return 'Mon';
+      //                     case 1:
+      //                       return 'Tue';
+      //                     case 2:
+      //                       return 'Wed';
+      //                     case 3:
+      //                       return 'Thu';
+      //                     case 4:
+      //                       return 'Fri';
+      //                     case 5:
+      //                       return 'Sat';
+      //                     case 6:
+      //                       return 'Sun';
+      //                     default:
+      //                       return '';
+      //                   }
+      //                 },
+      //               ),
+      //               leftTitles: SideTitles(
+      //                 showTitles: false,
+      //               ),
+      //             ),
+      //             borderData: FlBorderData(show: true, border: Border.all(color: CustomColors.themeColor, width: 2)),
+      //             lineBarsData: [
+      //               LineChartBarData(
+      //                 spots: List.generate(
+      //                   constraintCountsPerDay.length,
+      //                       (index) => FlSpot(index.toDouble(), constraintCountsPerDay[index].toDouble()),
+      //                 ),
+      //                 isCurved: true,
+      //                 colors: [CustomColors.themeColor],
+      //                 barWidth: 4,
+      //                 isStrokeCapRound: true,
+      //                 belowBarData: BarAreaData(show: false),
+      //                 dotData: FlDotData(
+      //                   show: true,
+      //                   getDotPainter: (spot, percent, barData, index) => FlDotCirclePainter(
+      //                     radius: 4,
+      //                     color: Colors.red, // Change the dot color here
+      //                     strokeWidth: 2,
+      //                     strokeColor: Colors.red, // Change the border color here
+      //                   ),
+      //                 ),
+      //               ),
+      //             ],
+      //               gridData: FlGridData(show: false),
+      //             lineTouchData: LineTouchData(
+      //               touchTooltipData: LineTouchTooltipData(
+      //                 tooltipBgColor: Color.fromRGBO(240, 240, 240, 1)
+      //               )
+      //             )
+      //
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
     );
   }
 
