@@ -17,5 +17,5 @@ def flutter_root
 end
 
 flutter_application_path = File.join(File.dirname(File.realpath(__FILE__)), '..')
-eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+eval(File.read(File.join(flutter_application_path, 'ios', 'Flutter', 'podhelper.rb')), binding)
 
