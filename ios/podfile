@@ -13,8 +13,9 @@ def flutter_root
   unless File.exist?(generated_xcode_build_settings_path)
     raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first."
   end
-  File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+  File.read(File.join(generated_xcode_build_settings_path, '../../..')).match(/FLUTTER_ROOT=(.*)/)[1]
 end
 
 flutter_application_path = File.join(File.dirname(File.realpath(__FILE__)), '..')
 eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+
