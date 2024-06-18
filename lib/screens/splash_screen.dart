@@ -83,12 +83,6 @@ class _SplashScreenState extends State<SplashScreen> {
          }
 
     }
-
-    // New user
-    setState(() {
-      isNewUser = true;
-    });
-
     return true;
   }
 
